@@ -52,19 +52,19 @@ public:
 				selected_squares[b][a] = '.';
 			}
 		}
-		//generates key array
-		for (int a = 0; a < y; a++) {
-			for (int b = 0; b < x; b++) {
-				bomb_squares[b][a] = 0;
-			}
-		}
-		//adds random bombs
-		for (int i = 0; i < mines; i++) {
-			int num1 = rand() % x;
-			int num2 = rand() % y;
-			bomb_squares[num1][num2] = 1;
+		////generates key array
+		//for (int a = 0; a < y; a++) {
+		//	for (int b = 0; b < x; b++) {
+		//		bomb_squares[b][a] = 0;
+		//	}
+		//}
+		////adds random bombs
+		//for (int i = 0; i < mines; i++) {
+		//	int num1 = rand() % x;
+		//	int num2 = rand() % y;
+		//	bomb_squares[num1][num2] = 1;
 
-		}
+		//}
 		
 	}
 	void print_board(int x, int y){
@@ -91,15 +91,16 @@ public:
 		}
 	}
 	bool get_square(int x, int y) {
+		//return true;
 
-		if (bomb_squares[x][y] == 1) {
+		/*if (bomb_squares[x][y] == 1) {
 			cout << "You hit a bomb, game over.\n\n\n";
 			return false;
-		}
-		else {
+		}*/
+	
 			selected_squares[x][y] = '0';
 			return true;
-		}
+		
 	}
 };
 
@@ -121,7 +122,7 @@ int main() {
 			newGame.print_board(row,col);
 			cout << "Enter coordinates\n";
 			cin >> x >> y;
-			if (!newGame.get_square(x-1, y-1)) {
+			if (!newGame.get_square(y-1, x-1)) {
 				contin = false;
 			}
 		}
